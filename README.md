@@ -17,7 +17,7 @@ pip install -r requirements.txt
 
 To run the project we need to set two environment variables for Flask:
 ```
-export FLASK_APP=src/main
+export FLASK_APP=wsgi
 export FLASK_ENV=development
 ```
 We don't actually need the second one but it's pretty handy, because it allows us to see debug information.
