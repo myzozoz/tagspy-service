@@ -6,6 +6,7 @@ MAX_REVIEW_PAGES=1
 # input: tag
 # output: data response from steamspy tag api
 def get_games_with_tag(tag):
+  print("https://steamspy.com/api.php?request=tag&tag=" + str(tag))
   r = requests.get("https://steamspy.com/api.php?request=tag&tag=" + str(tag))
   print(r.text)
   return json.loads(r.text)
