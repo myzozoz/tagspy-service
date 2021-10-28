@@ -10,10 +10,11 @@ def greet():
 
 @app.route('/api/')
 def api_greet():
-    return '<p>Please specify API to call.</p>'
+    return {'message': 'Please call a specific API'}
 
 @app.route('/api/games')
 def games():
   tags = request.args.get('tags',['']).split(',')
+  print(tags)
   response_data = service.analyze_reviews(tags)
   return jsonify(response_data)
