@@ -1,5 +1,7 @@
 from src.api import data
 
+MAX_GAMES=15
+
 # input: list of tags
 # output: list of app ids
 def fetch_games_with_tags(tags):
@@ -15,6 +17,8 @@ def fetch_games_with_tags(tags):
   matches = []
 
   for game in games[compare]:
+    if len(matches) >= MAX_GAMES:
+      break
     all_tags = True
     for tag in tags[1:]:
       if game not in games[tag]:

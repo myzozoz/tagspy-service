@@ -3,6 +3,7 @@ import json
 
 
 MAX_REVIEW_PAGES=1
+
 with open('resources/tag_data.json', 'r') as tagfile:
   tag_data = json.load(tagfile)
   tagfile.close()
