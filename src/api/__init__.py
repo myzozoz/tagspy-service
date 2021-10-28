@@ -10,7 +10,6 @@ def fetch_games_with_tags(tags):
   # fetch games for each singe tag
   for tag in tags:
     games[tag] = data.get_games_with_tag(tag)
-  
   # find games that match all tags
   compare = tags[0]
   matches = []
