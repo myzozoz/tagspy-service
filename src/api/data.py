@@ -3,7 +3,7 @@ import json
 import cloudscraper
 
 MAX_REVIEW_PAGES=1
-scraper = cloudscraper.create_scraper()
+scraper = cloudscraper.create_scraper(browser={'browser': 'firefox','platform': 'windows','mobile': False})
 
 # input: tag
 # output: data response from steamspy tag api
