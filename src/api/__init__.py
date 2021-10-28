@@ -1,4 +1,4 @@
-from api import data
+from src.api import data
 
 # input: list of tags
 # output: list of app ids

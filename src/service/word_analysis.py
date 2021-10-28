@@ -7,20 +7,14 @@ def analyze(review_data):
   '''
   review_data: (list of dicts) raw review data
   '''
-  #print(review_data[0])
   reviews = map_reviews(review_data)
-  #print(reviews[0])
   reviews = preprocess_text(reviews)
-  #print('PREPROCESSED STUFF')
-  #print(reviews)
 
-  # TF-IDF happpens here
   vectorizer = TfidfVectorizer()
   vectors = vectorizer.fit_transform(reviews)
   top_features = get_top_features(vectors, vectorizer, reviews)
   kws = BOV(top_features)
   s = sentiment(kws)
-  print(s)
 
   return {
     'top_features': top_features,

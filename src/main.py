@@ -1,6 +1,6 @@
 # Entry point
 from flask import Flask, request, jsonify
-import service
+from src.service import analyze_reviews
 
 app = Flask(__name__)
 
@@ -16,5 +16,5 @@ def api_greet():
 def games():
   tags = request.args.get('tags',['']).split(',')
   print(tags)
-  response_data = service.analyze_reviews(tags)
+  response_data = analyze_reviews(tags)
   return jsonify(response_data)

@@ -1,5 +1,5 @@
-import api
-from service.word_analysis import analyze
+from src import api
+from src.service.word_analysis import analyze
 
 # input: list of tags
 # output: list of words with values in dict format, e.g.
