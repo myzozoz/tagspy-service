@@ -37,7 +37,12 @@ def preprocess_text(reviews):
   
   stopwords = open("resources/stop-word-list.csv", "r").read().strip().split(",")
   stopwords = [i.strip() for i in stopwords]
-  
+
+  # load other banned words
+
+  customwords = open("resources/custom-word-list.csv", "r").read().strip().split(",")
+  customwords = [i.strip() for i in customwords]
+
   # call lemmatize object
   lmt = WordNetLemmatizer()
   
@@ -46,9 +51,9 @@ def preprocess_text(reviews):
       # lemmatize tokens 
       tokens = [lmt.lemmatize(i) for i in review.lower().split()]
       # remove stopwords
-      rv = [j for j in tokens if j not in stopwords]
+      rv = [j for j in tokens if j not in stopwords and j not in customwords]
       s = " ".join(rv)
-      # remove each reivew from punctuation 
+      # remove each review from punctuation 
       reviews[index] = s.translate(str.maketrans('', '', string.punctuation))
   
   # return preprocessed reviews
