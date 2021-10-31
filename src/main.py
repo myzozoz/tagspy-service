@@ -1,8 +1,10 @@
 # Entry point
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from src.service import analyze_reviews, fetch_tags
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
 def greet():
