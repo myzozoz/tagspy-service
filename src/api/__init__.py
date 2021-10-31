@@ -2,7 +2,7 @@ from src.api import data
 import math
 
 MAX_GAMES=15
-MAX_REVIEW_PAGES=20
+MAX_REVIEW_PAGES=15
 
 # input: list of tags
 # output: list of app ids

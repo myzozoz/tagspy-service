@@ -9,7 +9,9 @@ def analyze_reviews(tags):
   '''
   games = api.fetch_games_with_tags(tags)
   reviews = api.fetch_reviews_for_games(games)
-  return analyze(reviews)
+  results = analyze(reviews)
+  results['games'] = games
+  return results
 
 def fetch_tags():
   return api.fetch_tags()
