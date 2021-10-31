@@ -18,7 +18,7 @@ def analyze(review_data):
 
   return {
     'top_features': [{'value': f[0], 'count': f[1]} for f in top_features],
-    'top_keywords': [{'value': f[0], 'count': f[1]} for f in kws],
+    'top_keywords': [{'value': f[0], 'count': f[1]} for f in kws if f[0] != 'game'],
     'sentiment': s
   }
 
