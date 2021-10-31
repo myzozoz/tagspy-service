@@ -29,6 +29,6 @@ flask run
 and we should be good to go. If everything went well you can now head over to the URL shown in the output log (default is `http://127.0.0.1:5000/`) and you should see the Following greeting message: `Hello and welcome. Please call a specific API.`
 
 ## Using the app
-All APIs are provided under the path /api/ and currently the only service provided is one that fetches review analytics based on tags. As of right now there's no logic, only reviews are fetched. You can try this out by heading to for example the URL `http://127.0.0.1:5000/api/games?tags=FPS,Multiplayer,Competitive,Military`. This should provide you with the first 100 reviews for all of the 26 games that have all the tags provided in the URL.
+All APIs are provided under the path /api/ and currently the only service provided is one that fetches review analytics based on tags. As of right now there's no logic, only reviews are fetched. You can try this out by heading to for example the URL `http://127.0.0.1:5000/api/summary?tags=FPS,Multiplayer,Competitive,Military`. This should provide you with the first 100 reviews for all of the 26 games that have all the tags provided in the URL.
 
 Analysis logic can be added to the file `src/service/__init__.py`.

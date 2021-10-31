@@ -46,3 +46,6 @@ def fetch_reviews_for_games(games):
 
   return reviews
   
+
+def fetch_tags():
+  return data.get_tags()

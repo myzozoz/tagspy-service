@@ -8,19 +8,18 @@ with open('resources/tag_data.json', 'r') as tagfile:
   tag_data = json.load(tagfile)
   tagfile.close()
 
-# input: tag
-# output: data response from steamspy tag api
-def get_games_with_tag(tag):
-  '''
-  # In a perfect world we could just fetch everything from the steamspy API,
+# In a perfect world we could just fetch everything from the steamspy API,
   # but Cloudflare makes that a pain when deploying to Heroku.
   # Should work locally though
-  r = requests.get("https://steamspy.com/api.php?request=tag&tag=" + str(tag))
-  return json.loads(r.text)
-  '''
   # This method should always work, as long as the tag data has been pre-fetched
+  # Fetch data before hand with scripts/tag_fetch.py
+def get_games_with_tag(tag):
+  '''
+    Returns list of games
+    tag: Tag as string
+  '''
+  
   return tag_data[tag]
-
 
 def get_reviews_for_game(appid):
   reviews = []
@@ -38,3 +37,10 @@ def get_reviews_for_game(appid):
       break
 
   return reviews
+
+def get_tags():
+  '''
+    Returns list of all possible tags
+  '''
+  
+  return list(tag_data.keys())
