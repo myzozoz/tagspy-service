@@ -1,6 +1,8 @@
 from src.api import data
+import math
 
 MAX_GAMES=15
+MAX_REVIEW_PAGES=20
 
 # input: list of tags
 # output: list of app ids
@@ -36,12 +38,13 @@ def fetch_reviews_for_games(games):
   if len(games) < 1:
     return []
   print(f'Fetching reviews for {len(games)} games...')
+  reviewpages = max(math.floor(MAX_REVIEW_PAGES / len(games)), 1)
 
   reviews = []
   i = 1
   for game in games:
-    print(f'Fetching reviews for game {i}/{len(games)} ({game})')
-    reviews += data.get_reviews_for_game(game)
+    print(f'Fetching {reviewpages} pages of reviews for game {game} ({i}/{len(games)})')
+    reviews += data.get_reviews_for_game(game, reviewpages)
     i += 1
 
   return reviews

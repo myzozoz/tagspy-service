@@ -2,8 +2,6 @@ import requests
 import json
 
 
-MAX_REVIEW_PAGES=1
-
 with open('resources/tag_data.json', 'r') as tagfile:
   tag_data = json.load(tagfile)
   tagfile.close()
@@ -21,12 +19,13 @@ def get_games_with_tag(tag):
   
   return tag_data[tag]
 
-def get_reviews_for_game(appid):
+def get_reviews_for_game(appid, maxreviewpages):
   reviews = []
   cursor = '*'
   url = f'https://store.steampowered.com/appreviews/{appid}'
 
-  for i in range(MAX_REVIEW_PAGES): 
+  for i in range(maxreviewpages):
+    print(f'Fetching page {i}/{maxreviewpages}... ', end='')
     r = requests.get(url, params = {'json': 1, 'num_per_page': 100, 'cursor': cursor})
     data = json.loads(r.text)
     if 'reviews' in data:
@@ -35,7 +34,7 @@ def get_reviews_for_game(appid):
       cursor = data['cursor']
     else:
       break
-
+    print('Done!')
   return reviews
 
 def get_tags():
